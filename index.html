@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuildPro - Plataforma de Construção</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            },
+            colors: {
+              primary: { 50:'#f0f9ff', 100:'#e0f2fe', 500:'#0ea5e9', 600:'#0284c7', 700:'#0369a1', 900:'#0c4a6e' },
+              secondary: { 500:'#f59e0b', 600:'#d97706' }
+            },
+            boxShadow: {
+              'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+              'glow': '0 0 15px rgba(14, 165, 233, 0.3)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+      .hero-pattern {
+        background-color: #0f172a;
+        background-image: radial-gradient(#1e293b 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .fade-in { animation: fadeIn 0.5s ease-in; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="text-slate-900 antialiased">
+    
+    <!-- Navbar Container -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="bg-slate-50">
+      <!-- Hero Section -->
+      <section class="relative hero-pattern text-white overflow-hidden -mt-1">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-blue-900/90 z-10"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center mix-blend-overlay opacity-30 z-0"></div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 pt-32 pb-48 flex flex-col items-center text-center">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-500/10 border border-secondary-500/30 text-secondary-400 text-xs font-bold uppercase tracking-wider mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-secondary-500 animate-pulse"></span>
+            Plataforma #1 em Construção Civil
+          </div>
+          
+          <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-8 max-w-4xl tracking-tight">
+            Sua obra precisa de <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary-400 via-secondary-300 to-white">especialistas reais.</span>
+          </h1>
+          
+          <p class="text-lg md:text-xl text-slate-300 mb-12 max-w-2xl leading-relaxed font-light">
+            Conectamos você aos melhores pedreiros, eletricistas e pintores da sua região. Orçamentos rápidos, profissionais verificados e pagamento seguro.
+          </p>
+          
+          <div class="bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20 shadow-2xl max-w-3xl w-full flex flex-col md:flex-row gap-2">
+            <div class="flex-grow relative group">
+                <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                    <svg class="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <input 
+                  id="hero-search"
+                  type="text" 
+                  placeholder="O que você precisa hoje? (ex: Pintor, Eletricista)" 
+                  class="w-full pl-14 pr-4 py-4 bg-transparent text-white placeholder-slate-400 focus:outline-none font-medium text-lg"
+                />
+            </div>
+            <button onclick="window.location.href='marketplace.html?q=' + document.getElementById('hero-search').value" class="md:px-10 py-4 text-lg rounded-xl bg-secondary-500 hover:bg-secondary-600 text-white font-bold shadow-lg shadow-secondary-500/30 transition-all">
+              Buscar Profissionais
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-7xl mx-auto px-4 py-24 -mt-20 relative z-30">
+        <!-- Categories Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32" id="categories-grid">
+           <!-- Injected via JS -->
+        </div>
+
+        <!-- CTA -->
+        <section class="bg-slate-900 rounded-3xl p-12 md:p-24 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Pronto para começar sua obra?</h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="register.html" class="px-8 py-4 bg-secondary-500 hover:bg-secondary-600 text-white font-bold rounded-xl shadow-lg transition-all">Criar Conta Grátis</a>
+                    <a href="marketplace.html" class="px-8 py-4 bg-transparent border-2 border-slate-700 text-white font-bold rounded-xl hover:bg-slate-800 transition-all">Explorar Profissionais</a>
+                </div>
+            </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script>
+      // Populate Categories
+      const categories = ["Pedreiro", "Pintor", "Eletricista", "Encanador", "Gesseiro", "Serralheiro", "Marceneiro", "Arquiteto"];
+      const grid = document.getElementById('categories-grid');
+      categories.slice(0, 4).forEach((cat, idx) => {
+        grid.innerHTML += `
+          <div onclick="window.location.href='marketplace.html?cat=${cat}'" class="group bg-white p-8 rounded-2xl shadow-xl cursor-pointer hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden">
+             <div class="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-6 shadow-lg ${idx % 2 === 0 ? 'bg-slate-900 text-white' : 'bg-secondary-500 text-white'}">
+                 <span class="text-2xl font-bold">${cat.charAt(0)}</span>
+             </div>
+             <h3 class="font-bold text-lg text-slate-900">${cat}</h3>
+             <p class="text-sm text-slate-500 mt-2">Ver especialistas</p>
+          </div>
+        `;
+      });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
