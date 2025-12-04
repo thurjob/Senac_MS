@@ -1,4 +1,4 @@
-// Load Navbar
+//  Navbar
 function loadNavbar() {
     const user = DB.currentUser();
     const nav = document.getElementById('navbar-placeholder');

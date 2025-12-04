@@ -1,8 +1,8 @@
-// Auth Logic
+// Auth 
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 
-// LOGIN HANDLER
+// LOGIN 
 if (loginForm) {
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -13,7 +13,6 @@ if (loginForm) {
         
         if (user) {
             localStorage.setItem('buildpro_current_user', JSON.stringify(user));
-            // Show loading state or feedback if needed
             window.location.href = 'dashboard.html';
         } else {
             alert('Email ou senha incorretos!');
@@ -21,9 +20,8 @@ if (loginForm) {
     });
 }
 
-// QUICK LOGIN (DEMO)
+//  LOGIN (DEMO)
 function quickLogin(email) {
-    // For demo purposes, we assume '123' is the password for demo accounts
     const user = DB.login(email, '123');
     if(user) {
         localStorage.setItem('buildpro_current_user', JSON.stringify(user));
@@ -33,12 +31,11 @@ function quickLogin(email) {
     }
 }
 
-// REGISTER HANDLER
+// REGISTER 
 if (registerForm) {
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Basic Fields
         const type = document.querySelector('input[name="type"]:checked').value;
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
@@ -53,12 +50,11 @@ if (registerForm) {
             id: Date.now().toString(),
             name,
             email,
-            password, // Storing plain text for this frontend-only demo
+            password,
             type,
             avatar: `https://ui-avatars.com/api/?name=${name}&background=random&color=fff`
         };
 
-        // Provider Specific Fields
         if (type === 'PROVIDER') {
             const category = document.getElementById('category').value;
             const hourlyRate = document.getElementById('hourlyRate').value;
@@ -71,7 +67,7 @@ if (registerForm) {
             newUser.category = category;
             newUser.hourlyRate = hourlyRate;
             newUser.bio = `Olá, sou ${name}, especialista em serviços de ${category}.`;
-            newUser.rating = 5.0; // New users start with 5 stars for encouragement in this demo
+            newUser.rating = 5.0;
             newUser.reviewCount = 0;
             newUser.portfolio = []; 
         }
@@ -79,7 +75,7 @@ if (registerForm) {
         try {
             DB.register(newUser);
             
-            // Auto-login after register
+            // Auto-login 
             localStorage.setItem('buildpro_current_user', JSON.stringify(newUser));
             
             alert("Conta criada com sucesso!");

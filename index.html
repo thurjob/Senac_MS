@@ -39,12 +39,10 @@
 </head>
   <body class="text-slate-900 antialiased">
     
-    <!-- Navbar Container -->
+    <!-- Navbar  -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Main Content -->
     <div class="bg-slate-50">
-      <!-- Hero Section -->
       <section class="relative hero-pattern text-white overflow-hidden -mt-1">
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-blue-900/90 z-10"></div>
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center mix-blend-overlay opacity-30 z-0"></div>
@@ -84,12 +82,9 @@
       </section>
 
       <div class="max-w-7xl mx-auto px-4 py-24 -mt-20 relative z-30">
-        <!-- Categories Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32" id="categories-grid">
-           <!-- Injected via JS -->
         </div>
 
-        <!-- CTA -->
         <section class="bg-slate-900 rounded-3xl p-12 md:p-24 text-center relative overflow-hidden">
             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
             <div class="relative z-10 max-w-3xl mx-auto">
@@ -110,7 +105,6 @@
     <script src="assets/js/db.js"></script>
     <script src="assets/js/utils.js"></script>
     <script>
-      // Populate Categories
       const categories = ["Pedreiro", "Pintor", "Eletricista", "Encanador", "Gesseiro", "Serralheiro", "Marceneiro", "Arquiteto"];
       const grid = document.getElementById('categories-grid');
       categories.slice(0, 4).forEach((cat, idx) => {

@@ -1,7 +1,3 @@
-/**
- * Mock Database simulating a Backend.
- * Uses localStorage for persistence.
- */
 
 const STORAGE_KEYS = {
     USERS: 'buildpro_users',
@@ -10,7 +6,6 @@ const STORAGE_KEYS = {
     CURRENT_USER: 'buildpro_current_user'
 };
 
-// Seed Data with passwords
 const SEED_PROVIDERS = [
     {
       id: 'p1', name: 'Carlos Silva', email: 'carlos@example.com', password: '123', type: 'PROVIDER', category: 'Pedreiro',
@@ -49,7 +44,6 @@ const DB = {
 
     login(email, password) {
         const users = this.getUsers();
-        // Simple check. In production, passwords should be hashed!
         return users.find(u => u.email === email && u.password === password);
     },
 
@@ -112,5 +106,5 @@ const DB = {
     }
 };
 
-// Initialize DB on load
+// Iniciar DB 
 DB.init();

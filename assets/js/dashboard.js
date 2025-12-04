@@ -1,13 +1,11 @@
-// Dashboard Logic
+// Dashboard 
 const user = DB.currentUser();
 if (!user) window.location.href = 'login.html';
 
-// Setup User Info
 document.getElementById('user-name').innerText = user.name;
 document.getElementById('user-role').innerText = user.type === 'CLIENT' ? 'Cliente' : `Profissional • ${user.category}`;
 document.getElementById('user-avatar').src = user.avatar;
 
-// Tab Switching
 window.switchTab = (tabId) => {
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => {
@@ -37,7 +35,6 @@ function loadData() {
     document.getElementById('stat-pending').innerText = pending;
     document.getElementById('stat-completed').innerText = completed;
 
-    // Render Lists
     const listContainer = document.getElementById('requests-list');
     const recentContainer = document.getElementById('recent-activity-list');
     
@@ -47,7 +44,6 @@ function loadData() {
     requests.forEach(req => {
         const card = createRequestCard(req);
         listContainer.appendChild(card);
-        // Add only first 3 to recent
         if (recentContainer.children.length < 3) {
             const recentCard = card.cloneNode(true);
             recentContainer.appendChild(recentCard);
@@ -114,7 +110,7 @@ window.updateStatus = (id, status) => {
     loadData();
 };
 
-// Chat Logic
+// Chat 
 let currentReqId = null;
 let chatInterval = null;
 
@@ -160,5 +156,4 @@ window.sendMessage = () => {
     loadMessages();
 };
 
-// Initial Load
 loadData();
